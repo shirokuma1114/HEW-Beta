@@ -1,0 +1,57 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: 中間ディレクトリ (Debug\) に別のプロジェクト (directx_sanple13.vcxproj) と共有されているファイルが含まれています。これにより、クリーンしてリビルド動作が適切に行われない可能性があります。
+  camera.cpp
+  camera2.cpp
+c:\users\趙博かん\desktop\hew-master2\hew4-2\camera2.cpp(82): warning C4244: '+=': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\趙博かん\desktop\hew-master2\hew4-2\camera2.cpp(83): warning C4244: '-=': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\趙博かん\desktop\hew-master2\hew4-2\camera2.cpp(87): warning C4244: '+=': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\趙博かん\desktop\hew-master2\hew4-2\camera2.cpp(88): warning C4244: '-=': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\趙博かん\desktop\hew-master2\hew4-2\camera2.cpp(92): warning C4244: '+=': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\趙博かん\desktop\hew-master2\hew4-2\camera2.cpp(93): warning C4244: '-=': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\趙博かん\desktop\hew-master2\hew4-2\camera2.cpp(103): warning C4244: '+=': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\趙博かん\desktop\hew-master2\hew4-2\camera2.cpp(104): warning C4244: '-=': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\趙博かん\desktop\hew-master2\hew4-2\camera2.cpp(108): warning C4244: '+=': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\趙博かん\desktop\hew-master2\hew4-2\camera2.cpp(109): warning C4244: '-=': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\趙博かん\desktop\hew-master2\hew4-2\camera2.cpp(113): warning C4244: '+=': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\趙博かん\desktop\hew-master2\hew4-2\camera2.cpp(114): warning C4244: '-=': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\趙博かん\desktop\hew-master2\hew4-2\camera2.cpp(122): warning C4244: '+=': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\趙博かん\desktop\hew-master2\hew4-2\camera2.cpp(123): warning C4244: '-=': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\趙博かん\desktop\hew-master2\hew4-2\camera2.cpp(131): warning C4244: '+=': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\趙博かん\desktop\hew-master2\hew4-2\camera2.cpp(132): warning C4244: '-=': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\趙博かん\desktop\hew-master2\hew4-2\camera2.cpp(141): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
+c:\users\趙博かん\desktop\hew-master2\hew4-2\camera2.cpp(154): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
+c:\users\趙博かん\desktop\hew-master2\hew4-2\camera2.cpp(177): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
+c:\users\趙博かん\desktop\hew-master2\hew4-2\camera2.cpp(190): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
+  debugproc.cpp
+  drink.cpp
+  fade.cpp
+  game.cpp
+c:\users\趙博かん\desktop\hew-master2\hew4-2\scene.h(11): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'SCENE_INDEX' の左辺を無視します。
+c:\users\趙博かん\desktop\hew-master2\hew4-2\game.cpp(31): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'PHASE_INDEX' の左辺を無視します。
+  grid.cpp
+  ground.cpp
+  input.cpp
+  light.cpp
+  main.cpp
+c:\users\趙博かん\desktop\hew-master2\hew4-2\scene.h(11): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'SCENE_INDEX' の左辺を無視します。
+  meter.cpp
+c:\users\趙博かん\desktop\hew-master2\hew4-2\scene.h(11): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'SCENE_INDEX' の左辺を無視します。
+c:\users\趙博かん\desktop\hew-master2\hew4-2\meter.cpp(25): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+c:\users\趙博かん\desktop\hew-master2\hew4-2\meter.cpp(27): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  myDirect3D.cpp
+  player.cpp
+  result.cpp
+c:\users\趙博かん\desktop\hew-master2\hew4-2\scene.h(11): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'SCENE_INDEX' の左辺を無視します。
+  scene.cpp
+c:\users\趙博かん\desktop\hew-master2\hew4-2\scene.h(11): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'SCENE_INDEX' の左辺を無視します。
+  score.cpp
+  sprite.cpp
+  start.cpp
+  texture.cpp
+  コードを生成中...
+  コンパイル中...
+  title.cpp
+c:\users\趙博かん\desktop\hew-master2\hew4-2\scene.h(11): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'SCENE_INDEX' の左辺を無視します。
+c:\users\趙博かん\desktop\hew-master2\hew4-2\title.cpp(41): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+c:\users\趙博かん\desktop\hew-master2\hew4-2\title.cpp(45): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  コードを生成中...
+  HEW4-2.vcxproj -> C:\Users\趙博かん\Desktop\Hew-master2\HEW4-2\Debug\HEW4-2.exe
