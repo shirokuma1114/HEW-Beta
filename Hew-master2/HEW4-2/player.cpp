@@ -41,8 +41,9 @@ D3DXVECTOR3						g_normalPlayer;				// プレイヤーの法線
 float							accel = 0.0f;				// 加速の数値
 float							item = 0.0f;				// アイテムによっての加速の数値
 float							drift = 0.0f;				// ドリフトによっての加速の数値
-float							drift_count = 0.0f;			// ドリフトカウント
+int								drift_count = 0;			// ドリフトカウント
 float							drift_rot = 0.0f;			// ドリフト時の傾き
+D3DXVECTOR3						drift_sp;					// ドリフト用の変数
 float							meter_speed = 0.0f;			// メーター用の変数
 
 static LPDIRECT3DDEVICE9		pDevice;
@@ -91,7 +92,7 @@ HRESULT Player_Initialize(void)
 	pD3DXMtrlBuffer->Release();
 	
 	// 位置・回転・スケールの初期設定
-	g_posPlayer = D3DXVECTOR3(-150.0f, 100.0f, 10.0f);
+	g_posPlayer = D3DXVECTOR3(-200.0f, 10.0f, 10.0f);
 	g_rotPlayer = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 	g_sclPlayer = D3DXVECTOR3(50.0f, 50.0f, 50.0f);
 	g_normalPlayer= D3DXVECTOR3(0.0f, 100.0f, 0.0f);
@@ -123,10 +124,10 @@ void Player_Update(void)
 	g_posPlayer.y -= GRAVITY;
 
 	// ↑key
-	if (joycon[0].GetAccelerometer()>600|| joycon[0].GetAccelerometer()<-600)
+	if (Keyboard_IsPress(DIK_UP))
 	{
 		// 加速
-		if (accel < MAXSPEED) accel += 10.0f;
+		if (accel < MAXSPEED) accel += 5.0f;
 	}
 	else
 	{
@@ -138,7 +139,7 @@ void Player_Update(void)
 	if(accel+drift+item != 0)
 	{
 		// ←key
-		if (joycon[1].IsPress(JOYCON_Y))
+		if (Keyboard_IsPress(DIK_LEFT))
 		{
 			// Y軸左回転
 			g_rotPlayer.y -= VALUE_ROTATE;
@@ -147,10 +148,10 @@ void Player_Update(void)
 			// ドリフト時の傾き
 			drift_rot -= VALUE_ROTATE;
 			// ドリフトカウント
-			drift_count += 1.0f;
+			drift_count++;
 		}
 		// →key
-		else if (joycon[1].IsPress(JOYCON_A))
+		else if (Keyboard_IsPress(DIK_RIGHT))
 		{
 			// Y軸右回転
 			g_rotPlayer.y += VALUE_ROTATE;
@@ -159,14 +160,14 @@ void Player_Update(void)
 			// ドリフト時の傾き
 			drift_rot += VALUE_ROTATE;
 			// ドリフトカウント
-			drift_count += 1.0f;
+			drift_count++;
 		}
 		else
 		{
 			// ドリフトのたまり具合で加速が決まる
 			if (drift_count > 40.0f) drift = 100.0f;
 			if (drift_count > 80.0f) drift = 200.0f;
-			drift_count = 0.0f;
+			drift_count = 0;
 		}
 
 		// 回転制御(Z軸)
@@ -204,6 +205,12 @@ void Player_Update(void)
 	g_posPlayer.x += sinf(g_rotPlayer.y) * (accel + item + drift) / 20;
 	g_posPlayer.z += cosf(g_rotPlayer.y) * (accel + item + drift) / 20;
 
+	// ドリフトpos
+	drift_sp = D3DXVECTOR3
+		(sinf(g_rotPlayer.y) * (accel + item + drift) / 20,
+		0.0f,
+		cosf(g_rotPlayer.y) * (accel + item + drift) / 20);
+
 	// メーター変数
 	meter_speed = accel;
 
@@ -217,7 +224,7 @@ void Player_Update(void)
 	if (drift<1.0f&&drift>-1.0f) drift = 0.0f;
 
 	// エナジースタートに当たった時
-	if (Get_DrinkHit()) item += 100.0f;
+	if (Get_DrinkHit()) item += 200.0f;
 	else if (item != 0.0f) item -= 5.0f;
 
 	// アイテムズレを修正
@@ -241,25 +248,23 @@ void Player_Update(void)
 	SetPlayer_Pos(SetGroundHit(Ground_Check()));
 
 	// リセット
-	if (keyboard.IsPress(DIK_RETURN))
+	if (Keyboard_IsPress(DIK_RETURN))
 	{
-		g_posPlayer.x = -150.0f;
-		g_posPlayer.y = 100.0f;
+		g_posPlayer.x = -200.0f;
+		g_posPlayer.y = 20.0f;
 		g_posPlayer.z = 10.0f;
 
 		g_rotPlayer.x = 0.0f;
 		g_rotPlayer.y = 0.0f;
 		g_rotPlayer.z = 0.0f;
 	}
-	/*
+
 	DebugProc_Print((char *)"*** ３Ｄポリゴン操作 ***\n");
 	DebugProc_Print((char *)"位置 [%f : %f : %f]\n", g_posPlayer.x, g_posPlayer.y, g_posPlayer.z);
 	DebugProc_Print((char *)"前移動 : ↑\n");
 	DebugProc_Print((char *)"後移動 : ↓\n");
 	DebugProc_Print((char *)"左移動 : ←\n");
 	DebugProc_Print((char *)"右移動 : →\n");
-	DebugProc_Print((char *)"%d",joycon[0].GetAccelerometer());
-
 	DebugProc_Print((char *)"\n");
 
 	DebugProc_Print((char *)"向き [%f : %f : %f]\n", g_rotPlayer.x, g_rotPlayer.y, g_rotPlayer.z);
@@ -270,7 +275,6 @@ void Player_Update(void)
 
 
 	DebugProc_Print((char *)"位置・向きリセット : ENTER\n");
-	*/
 }
 
 //=============================================================================
@@ -345,4 +349,14 @@ void SetPlayer_Pos(float set)
 float GetMeter_Pos()
 {
 	return meter_speed;
+}
+
+int Get_driftcnt()
+{
+	return drift_count;
+}
+
+D3DXVECTOR3 Get_driftmove()
+{
+	return drift_sp;
 }

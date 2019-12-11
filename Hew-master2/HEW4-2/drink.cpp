@@ -13,7 +13,7 @@
 //*****************************************************************************
 
 #define	VALUE_MOVE		(1.0f)							// 移動量
-#define	VALUE_ROTATE	(D3DX_PI * 0.02f)				// 回転量
+#define	VALUE_ROTATE	(D3DX_PI * 0.03f)				// 回転量
 
 #define	Drink_WIDTH		(15.0f)						// 地面の幅(X方向)
 #define	Drink_DEPTH		(15.0f)						// 地面の奥行(Z方向)
@@ -92,9 +92,9 @@ HRESULT Drink_Initialize(void)
 	// 位置・回転・スケールの初期設定
 	for (int i = 0; i < Drink_NUM; i++)
 	{
-		Drink[i].g_posDrink = D3DXVECTOR3(100.0f*i, 25.0f, 100.0f);
+		Drink[i].g_posDrink = D3DXVECTOR3(-300.0f + 50.0f*i, 20.0f, 500.0f);
 		Drink[i].g_rotDrink = D3DXVECTOR3(D3DX_PI / 6, 0.0f, 0.0f);
-		Drink[i].g_sclDrink = D3DXVECTOR3(10.0f, 10.0f, 10.0f);
+		Drink[i].g_sclDrink = D3DXVECTOR3(7.0f, 7.0f, 7.0f);
 	}
 
 	return S_OK;

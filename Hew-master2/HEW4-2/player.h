@@ -12,7 +12,12 @@ HRESULT Player_Initialize(void);
 void Player_Finalize(void);
 void Player_Update(void);
 void Player_Draw(void);
+
 D3DXVECTOR3 GetPlayer_Pos();
 D3DXVECTOR3 GetPlayer_Rot();
 D3DXVECTOR3 GetNormalPlayer_Pos();
+
 float GetMeter_Pos();
+
+int Get_driftcnt();
+D3DXVECTOR3 Get_driftmove();

@@ -215,25 +215,13 @@ bool Initialize(HINSTANCE hInst)
 		return false;
 	}
 	// DirectInputの初期化（キーボード）
-	keyboard.Initialize(hInst, g_hWnd);
-
-	if (!joycon[0].Initialize(hInst, g_hWnd))
-	{
+	if (!Keyboard_Initialize(hInst, g_hWnd)){
 		return false;
 	}
-
-	if (!joycon[1].Initialize(hInst, g_hWnd))
-	{
-		return false;
-	}
-
-	
 	// DirectInputの初期化（ゲームパッド）
-	/*
 	if (!GamePad_Initialize(hInst, g_hWnd)){
 		return false;
 	}
-	*/
 
 	//全テクスチャファイルのロード
 	Texture_Load();
@@ -245,7 +233,7 @@ bool Initialize(HINSTANCE hInst)
 	Fade_Initialize();
 
 	// シーン
-	Scene_Initialize(SCENE_INDEX_TITLE);
+	Scene_Initialize(SCENE_INDEX_GAME);
 
 	return true;
 }
@@ -262,13 +250,10 @@ void Finalize(void)
 	Texture_Release();
 
 	// DirectInputの終了処理
-	//GamePad_Finalize();
+	GamePad_Finalize();
 
 	// DirectInputの終了処理
-	keyboard.Finalize();
-
-	joycon[0].Finalize();
-	joycon[1].Finalize();
+	Keyboard_Finalize();
 
 	// ゲームの終了処理(Direct3Dの終了処理)
 	D3D_Finalize();
@@ -278,13 +263,10 @@ void Finalize(void)
 void Update(void)
 {
 	//キーボードの状態を更新する
-	keyboard.Update();
-
-	joycon[0].Update();
-	joycon[1].Update();
+	Keyboard_Update();
 
 	//ゲームパッドの状態を更新する
-	//GamePad_Update();
+	GamePad_Update();
 
 	//シーンの更新
 	Scene_Update();

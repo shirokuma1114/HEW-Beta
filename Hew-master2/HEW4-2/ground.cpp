@@ -46,8 +46,8 @@ int		NumVertex = (PLATE_X_NUM + 1) * (PLATE_Z_NUM + 1);						//頂点数
 // GROUNDクラス
 //=============================================================================																			
 
-																				//	[SetGround_Pos関数]	ブロックの初期設定をする関数
-																				//【第一引数：ブロック番号】【第二引数：ブロック種類】【第三引数：ブロック座標】
+//	[SetGround_Pos関数]	ブロックの初期設定をする関数
+//【第一引数：ブロック番号】【第二引数：ブロック種類】【第三引数：ブロック座標】
 void GROUND::SetGround_Pos(int ground_num, int g_type, D3DXVECTOR3 ground_pos) {
 
 
